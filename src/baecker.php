@@ -51,7 +51,7 @@ class Baecker extends Page
         if (!empty($bestellte_pizzen)) {
 
             echo "<section class='layout_padding'>";
-            echo "<form method="post" id="baeckerform">"
+            echo "<form method='post' id='baeckerform'>";
             foreach ($bestellte_pizzen as $pizzen) {
                 if ($pizzen['PizzaStatus'] == "bestellt") {
                     echo <<<EOZ 
