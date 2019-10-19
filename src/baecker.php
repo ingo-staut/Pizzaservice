@@ -54,28 +54,28 @@ class Baecker extends Page
             echo "<form method='post' id='baeckerform'>";
             foreach ($bestellte_pizzen as $pizzen) {
                 if ($pizzen['PizzaStatus'] == "bestellt") {
-                    echo <<<EOZ 
-                    <p>{$pizzen['PizzaName']}</p>
-                    <label><input class="radio" type="radio" name="pizza_{$pizzen['PizzaId']}" value="bestellt" checked="checked" onclick="document.forms['baeckerform'].submit()"> bestellt</label>
-                    <label><input class="radio" type="radio" name="pizza_{$pizzen['PizzaId']}" value="im Ofen"  onclick="document.forms['baeckerform'].submit()"> im Ofen</label>
-                    <label><input class="radio" type="radio" name="pizza_{$pizzen['PizzaId']}" value="fertig"   onclick="document.forms['baeckerform'].submit()">fertig</label>
-EOZ;
-                }
-                if ($pizzen['PizzaStatus'] == "im Ofen") {
                     echo <<<EOA
                     <p>{$pizzen['PizzaName']}</p>
-                    <label><input class="radio" type="radio" name="pizza_{$pizzen['PizzaId']}" value="bestellt" onclick="document.forms['baeckerform'].submit()">bestellt</label>
-                    <label><input class="radio" type="radio" name="pizza_{$pizzen['PizzaId']}" value="im Ofen"  checked="checked" onclick="document.forms['baeckerform'].submit()">im Ofen</label>
-                    <label><input class="radio" type="radio" name="pizza_{$pizzen['PizzaId']}" value="fertig"  onclick="document.forms['baeckerform'].submit()">fertig</label>
+                    <label><input class="radio" type="radio" name="pizza_{$pizzen['PizzaId']}" value="bestellt" checked="checked" onclick="document.forms['baeckerform'].submit()"> bestellt</label>
+                    <label><input class="radio" type="radio" name="pizza_{$pizzen['PizzaId']}" value="im Ofen" onclick="document.forms['baeckerform'].submit()"> im Ofen</label>
+                    <label><input class="radio" type="radio" name="pizza_{$pizzen['PizzaId']}" value="fertig" onclick="document.forms['baeckerform'].submit()">fertig</label>
 EOA;
                 }
-                if ($pizzen['PizzaStatus'] == "fertig") {
+                if ($pizzen['PizzaStatus'] == "im Ofen") {
                     echo <<<EOB
                     <p>{$pizzen['PizzaName']}</p>
-                    <label><input type="radio" class="radio" name="pizza_{$pizzen['PizzaId']}" value="bestellt"onclick="document.forms['baeckerform'].submit()">bestellt</label>
+                    <label><input class="radio" type="radio" name="pizza_{$pizzen['PizzaId']}" value="bestellt" onclick="document.forms['baeckerform'].submit()">bestellt</label>
+                    <label><input class="radio" type="radio" name="pizza_{$pizzen['PizzaId']}" value="im Ofen" checked="checked" onclick="document.forms['baeckerform'].submit()">im Ofen</label>
+                    <label><input class="radio" type="radio" name="pizza_{$pizzen['PizzaId']}" value="fertig" onclick="document.forms['baeckerform'].submit()">fertig</label>
+EOB;
+                }
+                if ($pizzen['PizzaStatus'] == "fertig") {
+                    echo <<<EOC
+                    <p>{$pizzen['PizzaName']}</p>
+                    <label><input type="radio" class="radio" name="pizza_{$pizzen['PizzaId']}" value="bestellt" onclick="document.forms['baeckerform'].submit()">bestellt</label>
                     <label><input type="radio" class="radio" name="pizza_{$pizzen['PizzaId']}" value="im Ofen" onclick="document.forms['baeckerform'].submit()">im Ofen</label>
                     <label><input type="radio" class="radio" name="pizza_{$pizzen['PizzaId']}" value="fertig" checked="checked" onclick="document.forms['baeckerform'].submit()">fertig</label>
-EOB;
+EOC;
                 }
             }
 adressfeld
